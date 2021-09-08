@@ -12,20 +12,20 @@ function App() {
   const [mostrarpregunta, actualizarPregunta] = useState(true);
   const [gastos, guardarGastos] = useState([]);
   const [gasto, guardarGasto] = useState({});
-  const [creargasto, guardarCrearGasto] = useState({});
+  const [creargasto, guardarCrearGasto] = useState(false);
 
   // useEffect qye actualiza el restante
   useEffect(() => {
     if(creargasto){
       // agrega el nuevo presupuesto
       guardarGastos([...gastos, gasto])
+      // resta del presupuesto actual
+      const presupuestoRestante = restante - gasto.cantidad;
+      guardarRestante(parseInt(presupuestoRestante))
+      // resetear a false
+      guardarCrearGasto(false)
+    
     }
-    // resta del presupuesto actual
-    const presupuestoRestante = restante - gasto.cantidad;
-    guardarRestante(presupuestoRestante)
-    // resetear a false
-    guardarCrearGasto(false)
-  
   }, [gasto, creargasto, gastos, restante])
 
 

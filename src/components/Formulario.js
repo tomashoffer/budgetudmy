@@ -64,7 +64,7 @@ const Formulario = ({guardarGasto, guardarCrearGasto}) => {
 
  Formulario.propTypes = {
     guardarGasto: PropTypes.func.isRequired,
-    guardarCrearGasto: PropTypes.number.isRequired
+    guardarCrearGasto: PropTypes.func.isRequired
 }
 
  
